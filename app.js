@@ -18,7 +18,7 @@ Secret_access_key = "F166MBfblRWccBe1dFK9dDrsPHCiCId4mfVNBg7d"
 const storage = multer.memoryStorage()
 const upload = multer({ storage: storage })
 // const cookieParser = require('cookie-parser');
-const port = 8085;
+const port = 8000;
 
 
 //controllers
