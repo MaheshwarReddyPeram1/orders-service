@@ -1,0 +1,27 @@
+<div class="product-container">
+    <div class="row" >
+        <div class="col-4 mt-5 " *ngFor="let i of products">
+            <mat-card class="example-card">
+                <img mat-card-image src={{i.Image}} alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <h3>
+                    {{i.manufacturer}} {{i.model}}
+                  </h3>
+                <h5 style="align-items: center; display: flex;"> <b>Mlg</b> <mat-icon> local_gas_station</mat-icon> {{i.fuelEfficiency}} Avg <button mat-stroked-button disabled color="primary" style="margin-left: 10px; background-color: rgb(211, 247, 201);"><span style="color: rgb(61, 237, 13);">In Stock</span> </button></h5>
+                  
+                  <p style="margin-bottom: 5px;">Price Starts from <span><b>${{i.priceInThousands}}</b></span></p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" (click)="bookAppointment(i)">Book Appointment</button>
+                    <button mat-mini-fab color="primary" style="margin-left: 15px;" aria-label="Example icon button with a menu icon" (click)="editCar(i)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-mini-fab color="primary" style="margin-left: 15px;" aria-label="Example icon button with a menu icon" (click)="removeCar(i)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions>
+              </mat-card>
+        </div>
+    </div>
+
+</div>

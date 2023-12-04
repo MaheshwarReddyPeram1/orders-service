@@ -1,0 +1,55 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="login-container">
+    <!-- <div fxFlex="65" fxFlex.xs="0" fxFlex.sm="0" class="left-container" style="margin-left: -150px;">
+      <video height="100%" width="100%" autoplay loop src="../../../assets/Giftme!.mp4"></video>
+    </div> -->
+    <div style="height: 100%;">
+        <div style="display: flex; height: 100%;">
+            <div style="width: 50%;">
+
+                <img height="100%" width="120%"
+                    src="https://imgs.search.brave.com/R1lWNlkdxE5qLu_akrSEIEdZDwAx2yk0N3hSlsuPBZY/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE0/OTIxNDQ1MzQ2NTUt/YWU3OWM5NjRjOWQ3/P2l4bGliPXJiLTQu/MC4zJml4aWQ9TTN3/eE1qQTNmREI4TUh4/elpXRnlZMmg4TW54/OFkyRnljM3hsYm53/d2ZId3dmSHg4TUE9/PSZ3PTEwMDAmcT04/MA"
+                    alt="" srcset="">
+            </div>
+            <div
+                style="display: flex; align-items: center;justify-content: center; width: 50%; flex-direction: column;">
+                <form fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start center" [formGroup]="signInDetails">
+                    <h1>Welcome back!</h1>
+                    <div style="display: flex; flex-direction: column;">
+                        <div class="form-floating mb-4">
+                            <mat-form-field class="mat-form-field-fluid" style="width: 300px;">
+                                <input matInput placeholder="User Name" formControlName="UserName" autocomplete="off" />
+                                <mat-error>User Name
+                                    <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <mat-form-field class="mat-form-field-fluid" style="width: 300px;">
+                                <input [type]="'enail'" matInput placeholder="Email" formControlName="email" autocomplete="off" />
+                                <mat-error>Email
+                                    <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <div style="display: flex; flex-direction: column;">
+                                <div class="form-floating mb-4">
+                                    <mat-form-field class="mat-form-field-fluid" style="width: 300px;">
+                                        <input matInput placeholder="Password" formControlName="password" autocomplete="off" />
+                                        <mat-error>Password
+                                            <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div>
+                                    <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+                                    <button mat-raised-button color="primary" (click)="onLogin()" style="margin-left: 25px;">Back</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

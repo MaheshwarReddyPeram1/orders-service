@@ -1,0 +1,137 @@
+<app-nav></app-nav>
+<mat-card style="margin-top: 15px;">
+  <mat-card-header>
+      <!-- <mat-card-title>Your Appointment</mat-card-title> -->
+      <mat-card-subtitle>
+
+      </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+      <div class="card-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+
+              <div class="img">
+                  <img src="{{carData?.Image}}"
+                      class="d-block w-100" style="width: 200px !important" height="150">
+
+              </div>
+              <div class="Name">
+                  <h2>{{carData?.manufacturer}} {{carData?.model}}</h2>
+              </div>
+          </div>
+          <div class="content" style="display: flex;">
+              <div style="margin-right: 20px;">
+                <h5 style="align-items: center; display: flex;"> <b>Mlg</b> <mat-icon> local_gas_station</mat-icon> {{carData?.fuelEfficiency}} Avg <button mat-stroked-button disabled color="primary" style="margin-left: 10px; background-color: rgb(211, 247, 201);"><span style="color: rgb(61, 237, 13);">In Stock</span> </button></h5>
+                <h5 style="margin-bottom: 5px;"><b style="font-size: larger;">Price Starts from: </b> <span><b>${{carData?.priceInThousands}}</b></span></h5>
+              </div>
+          </div>
+      </div>
+  </mat-card-content>
+ 
+</mat-card>
+
+<div class="row text-center">
+    <div class="col-md-4">
+      
+    </div>
+    <div class="col-md-4">
+      <button mat-stroked-button disabled color="primary" style="margin-left: 10px; background-color: rgb(169, 194, 249);"><span style="color: rgb(2, 82, 255);;">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</span> </button>
+      <!-- <h1>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h1> -->
+    </div>
+    <div class="col-md-4">
+      <div class="btn-group">
+        <div
+          class="btn btn-primary"
+          mwlCalendarPreviousView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="closeOpenMonthViewDay()"
+        >
+          Previous
+        </div>
+        <div
+          class="btn btn-outline-secondary"
+          mwlCalendarToday
+          [(viewDate)]="viewDate"
+        >
+          Today
+        </div>
+        <div
+          class="btn btn-primary"
+          mwlCalendarNextView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="closeOpenMonthViewDay()"
+        >
+          Next
+        </div>
+      </div>
+      <div class="btn-group" style="margin-left: 15px;">
+        <div
+          class="btn btn-primary"
+          (click)="setView(CalendarView.Month)"
+          [class.active]="view === CalendarView.Month"
+        >
+          Month
+        </div>
+        <div
+          class="btn btn-primary"
+          (click)="setView(CalendarView.Week)"
+          [class.active]="view === CalendarView.Week"
+        >
+          Week
+        </div>
+        <div
+          class="btn btn-primary"
+          (click)="setView(CalendarView.Day)"
+          [class.active]="view === CalendarView.Day"
+        >
+          Day
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div [ngSwitch]="view">
+    <mwl-calendar-month-view
+      *ngSwitchCase="CalendarView.Month"
+      [viewDate]="viewDate"
+      [events]="events"
+      [refresh]="refresh"
+      [activeDayIsOpen]="activeDayIsOpen"
+      (dayClicked)="dayClicked($event.day)"
+      (eventClicked)="handleEvent('Clicked', $event.event)"
+      (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-month-view>
+    <mwl-calendar-week-view
+      *ngSwitchCase="CalendarView.Week"
+      [viewDate]="viewDate"
+      [events]="events"
+      [refresh]="refresh"
+      (eventClicked)="handleEvent('Clicked', $event.event)"
+      (eventTimesChanged)="eventTimesChanged($event)"
+      [dayStartHour]="dayStartHour"
+      [hourSegments]="hourSegments"
+  [hourSegmentHeight]="hourSegmentHeight"
+  (hourSegmentClicked)="hourClicked($event.date)"
+  [dayEndHour]="dayEndHour"
+  (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view
+      *ngSwitchCase="CalendarView.Day"
+      [viewDate]="viewDate"
+      [events]="events"
+      [refresh]="refresh"
+      (eventClicked)="handleEvent('Clicked', $event.event)"
+      [dayStartHour]="dayStartHour"
+      [hourSegments]="hourSegments"
+  [hourSegmentHeight]="hourSegmentHeight"
+  (hourSegmentClicked)="hourClicked($event.date)"
+  [dayEndHour]="dayEndHour"
+  (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-day-view>
+  </div>
+  

@@ -1,0 +1,52 @@
+
+
+<div class="container" style="padding: 15px;">
+    <div class="header" style="height: 40px;">
+        <h1>Add Appointment</h1>
+    </div>
+    <hr />
+    <div fxLayout="column">
+        <form fxLayout="row wrap" fxLayoutAlign="space-around start" [formGroup]="details">
+
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Full Name</mat-label>
+                <input formControlName="name" matInput>
+            </mat-form-field>
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput>
+            </mat-form-field>
+            
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Phone Number</mat-label>
+                <input formControlName="phoneNumber" matInput>
+            </mat-form-field>
+            
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Address</mat-label>
+                <input formControlName="address" matInput>
+            </mat-form-field>
+            
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Zip Code</mat-label>
+                <input formControlName="zipCode" matInput>
+            </mat-form-field>
+            
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>State</mat-label>
+                <input formControlName="state" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Credit Score</mat-label>
+                <input formControlName="creditScore" matInput>
+            </mat-form-field>
+        </form>
+    </div>
+    <div style="float: right; margin-right: 20px;">
+        <button mat-raised-button color="primary" (click)="onCancle()" style="margin-right: 15px;">Cancel</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()"><div style=" display: flex;flex-direction: row; align-items: center;">
+            <span>Submit</span><span><mat-spinner style="margin-left: 5px;" color="accent" diameter="20" *ngIf="isloadinSpnnier"></mat-spinner></span>
+        </div></button>
+    </div>
+</div>

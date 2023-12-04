@@ -1,0 +1,83 @@
+
+
+<div class="container" style="padding: 15px;">
+    <div class="header" style="height: 40px;">
+        <h1>Add Car</h1>
+    </div>
+    <hr />
+    <div fxLayout="column">
+        <form fxLayout="row wrap" fxLayoutAlign="space-around start" [formGroup]="carDetails">
+
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>manufacturer</mat-label>
+                <input formControlName="manufacturer" matInput>
+            </mat-form-field>
+            
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>model</mat-label>
+                <input formControlName="model" matInput>
+            </mat-form-field>
+            
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Vehicle Type</mat-label>
+                <input formControlName="vehicleType" matInput>
+            </mat-form-field>
+            
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Price In Thousands</mat-label>
+                <input formControlName="priceInThousands" matInput>
+            </mat-form-field>
+            
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Engine Size</mat-label>
+                <input formControlName="engineSize" matInput>
+            </mat-form-field>
+            
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Horse Power</mat-label>
+                <input formControlName="horsepower" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Width</mat-label>
+                <input formControlName="width" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Length</mat-label>
+                <input formControlName="length" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Curb Weight</mat-label>
+                <input formControlName="curbWeight" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Fuel Capacity</mat-label>
+                <input formControlName="fuelCapacity" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Latest Launch</mat-label>
+                <input formControlName="latestLaunch" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="shipping-class" appearance="outline" style="margin: 15px;">
+                <mat-label>Fuel Efficiency</mat-label>
+                <input formControlName="fuelEfficiency" matInput>
+            </mat-form-field>
+
+            <div class="d-flex justify-content-start align-items-start">
+                <button type="button" class="btn btn-label-brand btn-bold btn-sm" (click)="fileInput.click()">Add Attachment</button>
+                <input #fileInput type="file" style="display: none" (change)="handleFileInputChange($event)" onclick="this.value=null;">
+              </div>
+        </form>
+    </div>
+    <div style="float: right; margin-right: 20px;">
+        <button mat-raised-button color="primary" (click)="onCancle()" style="margin-right: 15px;">Cancel</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()"><div style=" display: flex;flex-direction: row; align-items: center;">
+            <span>Submit</span><span><mat-spinner style="margin-left: 5px;" color="accent" diameter="20" *ngIf="isloadinSpnnier"></mat-spinner></span>
+        </div></button>
+    </div>
+</div>

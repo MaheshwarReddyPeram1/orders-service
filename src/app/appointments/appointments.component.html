@@ -1,0 +1,41 @@
+<app-nav></app-nav>
+<div class="container">
+    <mat-card style="margin-top: 15px;"  *ngFor="let i of appointmentData">
+        <mat-card-header>
+            <mat-card-title style="color: blue;">Your Appointment</mat-card-title>
+            <mat-card-subtitle>
+
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="card-container" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+
+                    <div class="img">
+                        <img src="{{i.car.Image}}"
+                            class="d-block w-100" style="width: 200px !important" height="150">
+
+                    </div>
+                    <div class="Name">
+                        <h2>{{i.car.manufacturer}} {{i.car.model}}</h2>
+                    </div>
+                </div>
+                <div class="content" style="display: flex;">
+                    <div style="margin-right: 20px;">
+                        <h4><b>Date: </b><span style="color: blue;"> {{i.appointment.start | date :'medium'}}</span></h4>
+                        <h4><b>Name: </b>{{i.appointment.name}}</h4>
+                    </div>
+                    <div>
+                        <h4><b>Email: </b>{{i.appointment.email}}</h4>
+                        <h4><b>Phone Number: </b>{{i.appointment.phoneNumber}}</h4>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-raised-button color="primary" style="margin-right: 15px;" (click)="changeDate(i)">Change Date</button>
+            <button mat-raised-button color="primary"(click)="cancelAppontment(i.appointment, i.car)">Cancel</button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>
