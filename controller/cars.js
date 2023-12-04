@@ -4,9 +4,9 @@ const jwt = require("jsonwebtoken");
 const { async } = require("rxjs");
 const multer = require("multer")
 // import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
-const { S3Client, PutObjectCommand, GetObjectCommand } = require("@aws-sdk/client-s3");
+// const { S3Client, PutObjectCommand, GetObjectCommand } = require("@aws-sdk/client-s3");
 
-const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
+// const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 
 BUCKET_NAME = "auto-manage-peram"
 BUCKET_REGION = "us-east-2"
@@ -14,13 +14,13 @@ BUCKET_REGION = "us-east-2"
 Access_key = "AKIAVTTETVLIYOBAK7MQ"
 Secret_access_key = "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"
 
-const s3 = new S3Client({
-    credentials:{
-        accessKeyId: Access_key,
-        secretAccessKey: Secret_access_key
-    },
-    region: BUCKET_REGION
-})
+// const s3 = new S3Client({
+//     credentials:{
+//         accessKeyId: Access_key,
+//         secretAccessKey: Secret_access_key
+//     },
+//     region: BUCKET_REGION
+// })
 
 
 //add car
